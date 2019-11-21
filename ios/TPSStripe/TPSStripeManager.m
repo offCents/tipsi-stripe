@@ -530,11 +530,13 @@ RCT_EXPORT_METHOD(openApplePaySetup) {
         reject(error[kErrorKeyCode], error[kErrorKeyDescription], nil);
         return NO;
     }
-    if ([[[paymentRequest.paymentSummaryItems lastObject] amount] floatValue] == 0) {
-        NSDictionary *error = [errorCodes valueForKey:kErrorKeyNoAmount];
-        reject(error[kErrorKeyCode], error[kErrorKeyDescription], nil);
-        return NO;
-    }
+
+// NOTE: Disabled this because zero sum is supported from iOS 12.1.1 onward
+//    if ([[[paymentRequest.paymentSummaryItems lastObject] amount] floatValue] == 0) {
+//        NSDictionary *error = [errorCodes valueForKey:kErrorKeyNoAmount];
+//        reject(error[kErrorKeyCode], error[kErrorKeyDescription], nil);
+//        return NO;
+//    }
     return YES;
 }
 

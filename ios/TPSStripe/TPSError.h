@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger, TPSErrorCode)
 
     /// Previous request is not completed.
     TPSErrorCodePreviousRequestNotCompleted = -2,
-    
+
     /// Canceled by user.
     TPSErrorCodeUserCancel = -3,
 };
